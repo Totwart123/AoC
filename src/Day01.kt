@@ -1,5 +1,5 @@
 fun main() {
-    fun getCalsByElves(input: List<String>) : List<Int>{
+    fun getCalsByElves(input: List<String>): List<Int> {
         var numberInput = input.map { if (it.isEmpty()) -1 else it.toInt() }.toList()
 
         val emptyLines = numberInput.mapIndexed { index, i -> if (i == -1) index + 1 else -1 }.filter { it != -1 }.toMutableList().dropLast(0).reversed().toMutableList()

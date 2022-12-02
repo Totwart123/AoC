@@ -1,8 +1,8 @@
 fun main() {
     val duells = mutableListOf(
-            0 to listOf(Pair('A', 'Z'), Pair('B', 'X'), Pair('C', 'Y')),
-            3 to listOf(Pair('A', 'X'), Pair('B', 'Y'), Pair('C', 'Z')),
-            6 to listOf(Pair('A', 'Y'), Pair('B', 'Z'), Pair('C', 'X')),
+        0 to listOf(Pair('A', 'Z'), Pair('B', 'X'), Pair('C', 'Y')),
+        3 to listOf(Pair('A', 'X'), Pair('B', 'Y'), Pair('C', 'Z')),
+        6 to listOf(Pair('A', 'Y'), Pair('B', 'Z'), Pair('C', 'X')),
     )
 
     fun part1(input: List<String>): Int {
@@ -11,7 +11,7 @@ fun main() {
             val enemyMove = move.first()
             val myMove = move.last()
 
-            val movePoints = when(myMove){
+            val movePoints = when (myMove) {
                 'X' -> 1
                 'Y' -> 2
                 'Z' -> 3
@@ -19,16 +19,16 @@ fun main() {
             }
             check(movePoints != -1)
 
-            val duellPoints = duells.first{ duell -> duell.second.contains(Pair(enemyMove, myMove)) }.first
+            val duellPoints = duells.first { duell -> duell.second.contains(Pair(enemyMove, myMove)) }.first
 
             movePoints + duellPoints
         }
     }
 
     val predictedDuells = mutableListOf(
-            1 to listOf(Pair('A', 'Y'), Pair('B', 'X'), Pair('C', 'Z')),
-            2 to listOf(Pair('B', 'Y'), Pair('C', 'X'), Pair('A', 'Z')),
-            3 to listOf(Pair('C', 'Y'), Pair('A', 'X'), Pair('B', 'Z')),
+        1 to listOf(Pair('A', 'Y'), Pair('B', 'X'), Pair('C', 'Z')),
+        2 to listOf(Pair('B', 'Y'), Pair('C', 'X'), Pair('A', 'Z')),
+        3 to listOf(Pair('C', 'Y'), Pair('A', 'X'), Pair('B', 'Z')),
     )
 
     fun part2(input: List<String>): Int {
@@ -37,9 +37,9 @@ fun main() {
             val enemyMove = move.first()
             val result = move.last()
 
-            val movePoints = predictedDuells.first{ duell -> duell.second.contains(Pair(enemyMove, result)) }.first
+            val movePoints = predictedDuells.first { duell -> duell.second.contains(Pair(enemyMove, result)) }.first
 
-            val duellPoints = when(result){
+            val duellPoints = when (result) {
                 'X' -> 0
                 'Y' -> 3
                 'Z' -> 6
